@@ -182,7 +182,7 @@ export default function Landing() {
 
        <footer className="border-t border-slate-200/60 py-8 text-center text-sm text-slate-400">
       <p>
-        © {new Date().getFullYear()} <span className="font-medium text-slate-500">MyDealer.in</span> · Built with MERN
+        © {new Date().getFullYear()} <span className="font-medium text-slate-500">Shree Cars</span> · Built with MERN
       </p>
       <p className="mt-1">
         Developed by <span className="font-semibold text-slate-600">Arshad</span> {/* apna naam */}
