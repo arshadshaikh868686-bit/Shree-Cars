@@ -34,7 +34,7 @@ export default function SoldModal({ car, onClose, onDone }) {
     e.preventDefault();
     setError("");
     if (!buyerName.trim()) return setError("Customer ka naam daalo");
-    if (!/^[6-9]\d{9}\$/.test(buyerPhone)) return setError("10 digit ka sahi mobile number daalo");
+    if (!/^[6-9]\d{9}$/.test(buyerPhone)) return setError("10 digit ka sahi mobile number daalo");
     setLoading(true);
     try {
       const fd = new FormData();
