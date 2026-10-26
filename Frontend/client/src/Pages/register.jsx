@@ -4,32 +4,36 @@ import { useAuth } from "../Context/authContext";
 
 export default function Register() {
   const { register } = useAuth();
-  const navigate = useNavigate();
-  const [form, setForm] = useState({
-    dealershipName: "",
+  const navigate = useNavigate()
+  const [form , setForm] = useState({
+    dealershipName :"",
     ownerName: "",
-    email: "",
-    password: "",
+    email:"",
+    password:""
   });
-  const [error, setError] = useState("");
-  const [loading, setLoading] = useState(false);
+  const [error , setError] = useState("")
+  const [loading , setLoading] = useState(false)
 
-  const handleChange = (e) =>
-    setForm({ ...form, [e.target.name]: e.target.value });
+  const handleChange = (e)=>{
+    setForm({
+      ...form,
+      [e.target.name]:e.target.value
+    })
+  }
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setError("");
-    setLoading(true);
-    try {
-      await register(form);
-      navigate("/dashboard");
-    } catch (err) {
-      setError(err.response?.data?.message || "Something went wrong");
-    } finally {
-      setLoading(false);
+  const handleSubmit = async(e)=>{
+    e.preventDefault()
+    setError('')
+    setLoading(true)
+    try{
+     await register(form)
+     navigate('/dashboard')
+    }catch(err){
+      setError(err.response?.data?.message || 'Something Went Wrong')
+    }finally{
+      setLoading(false)
     }
-  };
+  }
 
   const input =
     "w-full border border-slate-200 rounded-xl px-4 py-2.5 bg-white text-slate-800 placeholder:text-slate-400 shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500/40 focus:border-indigo-400 transition";

@@ -1,11 +1,10 @@
-require("dotenv").config();
+require('dotenv').config();
 const express = require("express");
 const cors = require("cors");
 const connectDB = require("./config/db");
 
 const app = express();
 
-// FRONTEND_URL me comma se multiple URL daal sakte ho. Khali ho to sabko allow.
 const origins = (process.env.FRONTEND_URL || "")
   .split(",")
   .map((s) => s.trim().replace(/\/+$/, ""))

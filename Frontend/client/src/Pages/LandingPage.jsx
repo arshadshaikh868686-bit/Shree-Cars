@@ -120,17 +120,17 @@ export default function Landing() {
           </p>
         </div>
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-          {FEATURES.map(([icon, title, desc]) => (
+          {FEATURES.map(([logo, heading, bio]) => (
             <div
-              key={title}
+              key={heading}
               className="p-6 rounded-2xl bg-white/80 backdrop-blur border border-slate-200/80 shadow-sm hover:shadow-md hover:border-slate-300/80 transition"
             >
               <div className="w-11 h-11 rounded-xl bg-indigo-50 text-indigo-600 flex items-center justify-center mb-4">
-                <i className={`${icon} text-lg`} />
+                <i className={`${logo} text-lg`} />
               </div>
-              <h3 className="font-semibold text-lg text-slate-900">{title}</h3>
+              <h3 className="font-semibold text-lg text-slate-900">{heading}</h3>
               <p className="text-slate-500 mt-1.5 text-sm leading-relaxed">
-                {desc}
+                {bio}
               </p>
             </div>
           ))}
@@ -148,16 +148,16 @@ export default function Landing() {
             </p>
           </div>
           <div className="grid md:grid-cols-3 gap-8 md:gap-10">
-            {STEPS.map(([n, title, desc]) => (
-              <div key={n} className="text-center">
+            {STEPS.map(([number, heading, bio]) => (
+              <div key={number} className="text-center">
                 <div className="w-12 h-12 mx-auto rounded-full bg-indigo-600 text-white flex items-center justify-center font-bold text-lg shadow-md shadow-indigo-500/30">
-                  {n}
+                  {number}
                 </div>
                 <h3 className="mt-5 font-semibold text-lg text-slate-900">
-                  {title}
+                  {heading}
                 </h3>
                 <p className="text-slate-500 mt-1.5 text-sm leading-relaxed max-w-xs mx-auto">
-                  {desc}
+                  {bio}
                 </p>
               </div>
             ))}

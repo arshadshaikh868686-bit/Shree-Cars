@@ -190,11 +190,57 @@ export default function CarForm() {
 
   if (fetching)
     return (
-      <p className="p-8 text-center text-slate-500 text-sm">Loading...</p>
+      <div className="min-h-screen bg-gradient-to-br from-slate-50 via-indigo-50/40 to-slate-100">
+        <div className="mx-auto max-w-3xl px-4 py-8 sm:px-6">
+          <div className="mb-8 flex items-center justify-between">
+            <div className="h-8 w-40 animate-pulse rounded-lg bg-slate-200" />
+            <div className="h-5 w-24 animate-pulse rounded bg-slate-200" />
+          </div>
+          <div className="space-y-6 rounded-2xl border border-slate-200 bg-white/80 p-6 shadow-sm sm:p-8">
+            <div className="grid gap-4 sm:grid-cols-2">
+              {Array.from({ length: 12 }).map((_, i) => (
+                <div key={i} className="space-y-2">
+                  <div className="h-4 w-24 animate-pulse rounded bg-slate-200" />
+                  <div className="h-11 animate-pulse rounded-xl bg-slate-100" />
+                </div>
+              ))}
+            </div>
+            <div className="h-28 animate-pulse rounded-xl bg-slate-100" />
+            <div className="h-24 animate-pulse rounded-xl bg-slate-100" />
+            <div className="h-12 animate-pulse rounded-xl bg-indigo-100" />
+          </div>
+        </div>
+      </div>
     );
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-indigo-50/40 to-slate-100">
+    <div className="car-form-animated min-h-screen bg-gradient-to-br from-slate-50 via-indigo-50/40 to-slate-100">
+      <style>{`
+        @keyframes formFadeUp {
+          from { opacity: 0; transform: translateY(14px); }
+          to { opacity: 1; transform: translateY(0); }
+        }
+        .car-form-animated .car-form-panel { animation: formFadeUp .45s ease-out both; }
+        .car-form-animated input:not([type="file"]),
+        .car-form-animated select,
+        .car-form-animated textarea {
+          transition: border-color .2s ease, box-shadow .2s ease, transform .2s ease, background-color .2s ease;
+        }
+        .car-form-animated input:not([type="file"]):focus,
+        .car-form-animated select:focus,
+        .car-form-animated textarea:focus { transform: translateY(-1px); }
+        .car-form-animated button,
+        .car-form-animated a,
+        .car-form-animated label { transition: transform .2s ease, box-shadow .2s ease, background-color .2s ease, color .2s ease; }
+        .car-form-animated button:not(:disabled):hover { transform: translateY(-1px); }
+        .car-form-animated button:not(:disabled):active { transform: scale(.98); }
+        .car-form-animated img { animation: formFadeUp .3s ease-out both; }
+        @media (prefers-reduced-motion: reduce) {
+          .car-form-animated .car-form-panel,
+          .car-form-animated img { animation: none !important; }
+          .car-form-animated * { transition: none !important; }
+        }
+      `}</style>
       <div className="max-w-3xl mx-auto px-4 sm:px-6 py-8">
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mb-8">
           <h1 className="text-2xl sm:text-3xl font-bold tracking-tight text-slate-900">
@@ -210,7 +256,7 @@ export default function CarForm() {
 
         <form
           onSubmit={handleSubmit}
-          className="bg-white/80 backdrop-blur border border-slate-200/80 rounded-2xl shadow-sm p-6 sm:p-8 flex flex-col gap-5"
+          className="car-form-panel bg-white/80 backdrop-blur border border-slate-200/80 rounded-2xl shadow-sm p-6 sm:p-8 flex flex-col gap-5"
         >
           {error && (
             <p className="bg-red-50 text-red-700 border border-red-200 rounded-xl p-3.5 text-sm">

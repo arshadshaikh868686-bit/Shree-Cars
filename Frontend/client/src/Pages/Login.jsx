@@ -5,10 +5,10 @@ import { useAuth } from "../Context/authContext";
 export default function Login() {
   const { login } = useAuth();
   const navigate = useNavigate();
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [error, setError] = useState("");
-  const [loading, setLoading] = useState(false);
+  const [email , setEmail] = useState('')
+  const [password , setPassword] = useState('')
+  const [error , setError] = useState('')
+  const [loading , setLoading] = useState(false)
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -16,9 +16,9 @@ export default function Login() {
     setLoading(true);
     try {
       await login(email, password);
-      navigate("/");
+      navigate("/dashboard");
     } catch (err) {
-      setError(err.response?.data?.message || "Something went wrong");
+      setError(err.response?.data?.message|| "Something went wrong");
     } finally {
       setLoading(false);
     }
