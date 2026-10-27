@@ -30,9 +30,6 @@ app.use(async (req, res, next) => {
 
 app.use("/api/auth", require("./routes/authRoutes"));
 app.use("/api/cars", require("./routes/carRoutes"));
-// Payment abhi "coming soon" hai (controller bana nahi), isliye route band hai.
-// app.use("/api/payment", require("./routes/paymentRoutes"));
-
 app.get("/", (req, res) => res.send("Car Dealer API chal rahi hai"));
 app.get("/api", (req, res) => res.json({ ok: true }));
 
